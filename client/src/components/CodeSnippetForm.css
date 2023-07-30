@@ -1,0 +1,78 @@
+/* CodeSnippetForm.css */ 
+.App-content {
+  background: #136a8a;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/* Container for the form */
+.code-snippet-form {
+  width: 90%;
+  max-width: 800px; /* Add a max-width to limit the form size */
+  margin: 0 auto; /* Center the form horizontally */
+  background-color: #f5f5f5;
+  padding: 20px; /* Add padding around the form */
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.425);
+  margin-bottom: 25px;
+}
+
+/* Style for each form group (label + input/textarea) */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Common styles for input and textarea elements */
+.form-input,
+.form-textarea,
+.form-select { /* Add .form-select class for dropdown styling */
+  width: calc(100% - 20px); /* Subtract 10 pixels from 100% */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: Arial, sans-serif; /* Set the desired font family */
+}
+
+.form-select {
+  width: 100%;
+} 
+/* Style for the Save Snippet button */
+.form-button {
+  background: #136a8a;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Additional styles for the textarea to make it larger */
+.form-textarea {
+  height: 200px;
+}
+
+
+/* Styling for the code input */
+.code-input {
+  flex: 1;
+}
+
+/* Styling for the code preview */
+.code-preview {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Styling for the code preview heading */
+.code-preview h2 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #000000;
+}
