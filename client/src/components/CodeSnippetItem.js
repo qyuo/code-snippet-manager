@@ -2,9 +2,18 @@ import React from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import axios from "axios";
-import "./CodeSnippetItem.css"; // Import the CSS file for this component
+import "./CodeSnippetItem.css"; 
 
-// SVG icon for the delete button (Replace with your preferred SVG)
+const options = {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric',
+  timeZoneName: 'short',
+};
+
 const DeleteIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -23,13 +32,16 @@ const DeleteIcon = () => (
 );
 
 const CodeSnippetItem = ({ snippet, onDelete }) => {
+  const dateObj = new Date(snippet.date);
+  const formattedDate = dateObj.toLocaleString(undefined, options);
+
   const handleDelete = () => {
     // Send a DELETE request to the backend API to delete the snippet
     axios
       .delete(
         `${process.env.REACT_APP_BACKEND_URL}/api/code-snippets/${snippet._id}`,
       )
-      .then((response) => {
+      .then(() => {
         onDelete(snippet._id); // Notify the parent component that the snippet is deleted
       })
       .catch((error) => {
@@ -53,6 +65,7 @@ const CodeSnippetItem = ({ snippet, onDelete }) => {
       >
         {snippet.code}
       </SyntaxHighlighter>
+      <small className="snippet-footer">{formattedDate}</small>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import CodeSnippetItem from "./CodeSnippetItem";
 import SearchBar from "./SearchBar";
 import "./Search.css";

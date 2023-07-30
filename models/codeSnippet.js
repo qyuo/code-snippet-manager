@@ -5,8 +5,7 @@ const codeSnippetSchema = new mongoose.Schema({
   description: { type: String, required: true },
   language: { type: String, required: true },
   code: { type: String, required: true },
-  tags: [{ type: String }],
-  isPublic: { type: Boolean, default: false },
+  date: { type: Date, default: Date.now },
 });
 
 const CodeSnippet = mongoose.model("CodeSnippet", codeSnippetSchema);

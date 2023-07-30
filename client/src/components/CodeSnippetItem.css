@@ -1,10 +1,7 @@
-/* Styles for CodeSnippetItem component */
-
-/* CodeSnippetItem.css */
 .snippet-title {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Place items at the ends of the container */
+  justify-content: space-between; 
 }
 
 .delete-button {
@@ -13,14 +10,12 @@
   cursor: pointer;
 }
 
-  .snippet-description {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
+.snippet-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
   
-  /* Styling for the code block */
-  .react-syntax-highlighter-code-block {
-    margin: 0;
-    border-radius: 4px;
-  }
-  
+.react-syntax-highlighter-code-block {
+  margin: 0;
+  border-radius: 4px;
+}

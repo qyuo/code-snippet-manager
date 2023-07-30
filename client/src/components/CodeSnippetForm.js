@@ -1,14 +1,5 @@
 import React, { useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {
-  javascript,
-  python,
-  java,
-  css,
-  c,
-  cpp,
-  // Add other language imports as needed...
-} from "react-syntax-highlighter/dist/esm/languages/prism";
 import axios from "axios";
 import "./CodeSnippetForm.css";
 
@@ -28,17 +19,6 @@ const CodeSnippetForm = () => {
   const [language, setLanguage] = useState("");
   const [code, setCode] = useState("");
   const [formError, setFormError] = useState(false);
-
-  // Language mappings for syntax highlighting
-  const languageMap = {
-    javascript,
-    python,
-    java,
-    css,
-    c,
-    cpp,
-    // Add other language mappings as needed...
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
