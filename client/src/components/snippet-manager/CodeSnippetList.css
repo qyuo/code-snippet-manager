@@ -1,0 +1,29 @@
+.snippet-list-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  background-color: #f5f5f5;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.425);
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.snippet-list {
+  list-style: none;
+  padding: 0;
+}
+.snippet-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+}
+.snippet-item:hover {
+  border-color: #28a745;
+  transition: border-color 0.3s ease;
+}

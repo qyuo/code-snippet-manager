@@ -1,28 +1,40 @@
 import React from "react";
+import { Navigate, Routes, Route } from "react-router-dom";
 import "./App.css";
-import CodeSnippetForm from "./components/CodeSnippetForm";
-import CodeSnippetList from "./components/CodeSnippetList";
-import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Search from "./components/Search";
+import SnippetManager from "./components/SnippetManager";
+import UserAccount from "./components/user-accounts/UserAccount";
+import isAuthenticated from "./utils/isAuthenticated";
+import LoginForm from "./components/user-accounts/LoginForm";
+import RegistrationForm from "./components/user-accounts/RegistrationForm";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-        <div className="App-content">
-          {" "}
-          {/* Wrap the content with App-content */}
-          <Routes>
-            <Route path="/" element={<CodeSnippetForm />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/history" element={<CodeSnippetList />} />
-          </Routes>
-        </div>
-      </Router>
+      <div className="App-content">
+        {/* Wrap the content with App-content */}
+        <Routes>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/register" element={<RegistrationForm />} />
+
+          {/* Protected route - accessible only if authenticated */}
+          <Route
+            path="/*"
+            element={
+              isAuthenticated() ? <SnippetManager /> : <Navigate to="/login" />
+            }
+          />
+
+          {/* Default route - Redirect to dashboard (SnippetManager) after login */}
+          <Route
+            path="/"
+            element={
+              isAuthenticated() ? <Navigate to="/form" /> : <UserAccount />
+            }
+          />
+        </Routes>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

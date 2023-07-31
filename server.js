@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -8,7 +9,6 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
 const MONGODB_URI = "mongodb://127.0.0.1:27017/code_snippet_manager";
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
@@ -27,9 +27,12 @@ mongoose.connection.on("error", (err) => {
 app.use(express.json()); // Parse incoming JSON data
 app.use(cors()); // Enable CORS (Cross-Origin Resource Sharing)
 
-// Define your routes here
 const codeSnippetRoutes = require("./routes/codeSnippetRoutes");
-app.use("/api/code-snippets", codeSnippetRoutes);
+const userRoutes = require("./routes/userRoutes");
+const protectRoute = require("./authMiddleware");
+
+app.use("/api/code-snippets", protectRoute, codeSnippetRoutes);
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

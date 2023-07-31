@@ -1,0 +1,46 @@
+.user-title {
+  text-align: center;
+}
+.user-form {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 2%;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  background-color: #f5f5f5;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.425);
+}
+input[type="email"], input[type="password"] {
+  width: 100%;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.user-action {
+  background: #136a8a;
+  background: -webkit-linear-gradient(to right, #267871, #136a8a);
+  background: linear-gradient(to right, #267871, #136a8a);
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  border: none;
+}
+.user-link {
+  color: black;
+}
+.user-step {
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.user-account-container-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}

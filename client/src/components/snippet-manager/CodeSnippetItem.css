@@ -1,0 +1,18 @@
+.snippet-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.delete-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.snippet-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.react-syntax-highlighter-code-block {
+  margin: 0;
+  border-radius: 4px;
+}
