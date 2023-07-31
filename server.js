@@ -28,9 +28,10 @@ app.use(express.json()); // Parse incoming JSON data
 app.use(cors()); // Enable CORS (Cross-Origin Resource Sharing)
 
 const codeSnippetRoutes = require("./routes/codeSnippetRoutes");
-app.use("/api/code-snippets", codeSnippetRoutes);
-
 const userRoutes = require("./routes/userRoutes");
+const protectRoute = require("./authMiddleware");
+
+app.use("/api/code-snippets", protectRoute, codeSnippetRoutes);
 app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {

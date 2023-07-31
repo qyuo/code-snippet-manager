@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./SearchBar.css"; // Import the CSS file for this component
+import "./SearchBar.css";
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = () => {
-    // Fetch code snippets from the backend API based on the search term
+    const token = localStorage.getItem("token");
     axios
       .get(
         `${process.env.REACT_APP_BACKEND_URL}/api/code-snippets/search?q=${searchTerm}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
       )
       .then((response) => {
-        onSearch(response.data); // Send the search results to the parent component
+        onSearch(response.data);
       })
       .catch((error) => {
         console.error("Error searching for code snippets:", error);

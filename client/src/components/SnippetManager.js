@@ -4,23 +4,25 @@ import CodeSnippetForm from "./snippet-manager/CodeSnippetForm";
 import CodeSnippetList from "./snippet-manager/CodeSnippetList";
 import Search from "./snippet-manager/Search";
 import Navbar from "./snippet-manager/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import isAuthenticated from "../utils/isAuthenticated";
+import { Navigate, Routes, Route } from "react-router-dom";
 
 const SnippetManager = () => {
+  if (!isAuthenticated()) {
+    return <Navigate to="/login" />;
+  }
+
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-        <div className="App-content">
-          {" "}
-          {/* Wrap the content with App-content */}
-          <Routes>
-            <Route path="/" element={<CodeSnippetForm />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/history" element={<CodeSnippetList />} />
-          </Routes>
-        </div>
-      </Router>
+      <Navbar />
+      <div className="App-content">
+        {/* Wrap the content with App-content */}
+        <Routes>
+          <Route path="/form" element={<CodeSnippetForm />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/history" element={<CodeSnippetList />} />
+        </Routes>
+      </div>
     </div>
   );
 };

@@ -36,13 +36,18 @@ const CodeSnippetItem = ({ snippet, onDelete }) => {
   const formattedDate = dateObj.toLocaleString(undefined, options);
 
   const handleDelete = () => {
-    // Send a DELETE request to the backend API to delete the snippet
+    const token = localStorage.getItem("token");
     axios
       .delete(
         `${process.env.REACT_APP_BACKEND_URL}/api/code-snippets/${snippet._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
       )
       .then(() => {
-        onDelete(snippet._id); // Notify the parent component that the snippet is deleted
+        onDelete(snippet._id);
       })
       .catch((error) => {
         console.error("Error deleting snippet:", error);

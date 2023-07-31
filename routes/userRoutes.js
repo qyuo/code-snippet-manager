@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user.js");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const secretKey = process.env.SECRET_KEY;
 
 // User registration route
 router.post("/register", async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { email, password } = req.body;
 
-    // Validate the input data (username, email, password)
-    if (!username || !email || !password) {
+    // Validate the input data ( email, password)
+    if (!email || !password) {
       return res
         .status(400)
         .json({ error: "Please enter all required fields." });
@@ -26,11 +26,12 @@ router.post("/register", async (req, res) => {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ username, email, password: hashedPassword });
+    const newUser = new User({ email, password: hashedPassword });
 
     const savedUser = await newUser.save();
     res.status(201).json(savedUser);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: "Could not register the user." });
   }
 });

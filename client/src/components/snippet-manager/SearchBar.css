@@ -1,26 +1,23 @@
 .search-bar-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .search-input {
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    width: 20rem;
-    margin-right: 10px;
-  }
-  
-  .search-button {
-    padding: 10px 20px;
-    background: #136a8a;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  align-items: center;
+}
+.search-input {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 20rem;
+  margin-right: 10px;
+}
+.search-button {
+  padding: 10px 20px;
+  background: #136a8a;
+  background: -webkit-linear-gradient(to right, #267871, #136a8a);
+  background: linear-gradient(to right, #267871, #136a8a);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}

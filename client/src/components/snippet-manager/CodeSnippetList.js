@@ -7,9 +7,13 @@ const CodeSnippetList = () => {
   const [snippets, setSnippets] = useState([]);
 
   useEffect(() => {
-    // Fetch code snippets from the backend API
+    const token = localStorage.getItem("token");
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/api/code-snippets`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/code-snippets`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         setSnippets(response.data);
       })
@@ -19,7 +23,6 @@ const CodeSnippetList = () => {
   }, []);
 
   const handleDelete = (deletedSnippetId) => {
-    // Remove the deleted snippet from the snippets state
     setSnippets((prevSnippets) =>
       prevSnippets.filter((snippet) => snippet._id !== deletedSnippetId),
     );

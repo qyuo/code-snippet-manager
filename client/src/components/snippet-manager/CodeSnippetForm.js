@@ -10,7 +10,6 @@ const languageOptions = [
   { value: "css", label: "CSS" },
   { value: "c", label: "C" },
   { value: "cpp", label: "C++" },
-  // Add other language options as needed...
 ];
 
 const CodeSnippetForm = () => {
@@ -23,7 +22,6 @@ const CodeSnippetForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if all fields are filled before submitting
     if (!title || !description || !language || !code) {
       setFormError(true);
       return;
@@ -36,11 +34,17 @@ const CodeSnippetForm = () => {
       code,
     };
 
-    // Send the new snippet to the backend API to be saved
+    const token = localStorage.getItem("token");
+
     axios
       .post(
         `${process.env.REACT_APP_BACKEND_URL}/api/code-snippets`,
         newSnippet,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
       )
       .then((response) => {
         console.log("Snippet saved successfully:", response.data);
@@ -48,7 +52,7 @@ const CodeSnippetForm = () => {
         setDescription("");
         setLanguage("");
         setCode("");
-        setFormError(false); // Reset the form error state
+        setFormError(false);
       })
       .catch((error) => {
         console.error("Error saving snippet:", error);
@@ -60,7 +64,6 @@ const CodeSnippetForm = () => {
       <h1>Create New Code Snippet</h1>
       <div className="form-container">
         <form onSubmit={handleSubmit} className="code-input">
-          {/* Code Input */}
           <div className="form-group">
             <label>Title:</label>
             <input
@@ -90,7 +93,7 @@ const CodeSnippetForm = () => {
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="form-select" /* Use .form-select class for dropdown styling */
+              className="form-select"
               required
             >
               <option value="">-- Select Language --</option>
