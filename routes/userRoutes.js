@@ -17,6 +17,7 @@ router.post("/register", async (req, res) => {
         .json({ error: "Please enter all required fields." });
     }
 
+
     // Check if the user already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
