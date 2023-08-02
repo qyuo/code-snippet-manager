@@ -20,7 +20,7 @@ To set up Snippet Manager locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/qyuo/code-snippet-manager.git
    cd Snippet-Manager
 2. Backend Setup
 - Ensure you have MongoDB installed and running locally or provide a MongoDB connection URL in the `.env` file located in the root of the backend directory.
@@ -30,11 +30,10 @@ To set up Snippet Manager locally, follow these steps:
 
 - Install backend dependencies and start the server:
   ```bash
-  cd backend
   npm install
   npm start
 3. Frontend Setup
-- In the frontend directory, create a .env file and add the backend URL: `REACT_APP_BACKEND_URL=http://localhost:5000`
+- In the frontend (client) directory, create a .env file and add the backend URL: `REACT_APP_BACKEND_URL=http://localhost:5000`
 - Install frontend dependencies and start the application
 
 ## Video Demo
