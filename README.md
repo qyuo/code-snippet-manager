@@ -1,5 +1,7 @@
 # Snippet Manager
 
+![code-snippet-manager](https://github.com/qyuo/code-snippet-manager/assets/77930041/563add5a-3b3b-4eba-a860-e541a502a844)
+
 **Snippet Manager** is a web application that allows users to submit and manage code snippets in several programming languages. It provides a user-friendly interface for storing and organizing code samples, making it convenient for developers to access and reuse their code snippets.
 
 ## Features
